@@ -3086,9 +3086,9 @@ img.u-pull-left {
 
 .s-intro__content-top h1 {
     font-weight  : 500;
-    font-size    : calc(var(--text-size) * 1.4737);
+    font-size    : calc(var(--text-size) * 2.4737);
     line-height  : 1.333;
-    color        : var(--color-1);
+    color        : #fff;
     margin-top   : 0;
     margin-bottom: var(--vspace-0_5);
 }
