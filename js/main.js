@@ -73,48 +73,61 @@
 
    /* Countdown Timer
     * ------------------------------------------------------ */
-   const ssCountdown = function () {
-    const finalDate = new Date().getTime() + (24 * 60 * 60 * 1000 * 24); 
-    const daysSpan = document.querySelector('.counter .ss-days');
-    const hoursSpan = document.querySelector('.counter .ss-hours');
-    const minutesSpan = document.querySelector('.counter .ss-minutes');
-    const secondsSpan = document.querySelector('.counter .ss-seconds');
-    let timeInterval;
+//    const ssCountdown = function () {
+//     const finalDate = new Date().getTime() + (24 * 60 * 60 * 1000 * 24); 
+//     const daysSpan = document.querySelector('.counter .ss-days');
+//     const hoursSpan = document.querySelector('.counter .ss-hours');
+//     const minutesSpan = document.querySelector('.counter .ss-minutes');
+//     const secondsSpan = document.querySelector('.counter .ss-seconds');
+//     let timeInterval;
   
-    if (!(daysSpan && hoursSpan && minutesSpan && secondsSpan)) return;
+//     if (!(daysSpan && hoursSpan && minutesSpan && secondsSpan)) return;
   
-    function timer() {
-      const now = new Date().getTime();
-      let diff = finalDate - now;
+//     function timer() {
+//       const now = new Date().getTime();
+//       let diff = finalDate - now;
   
-      if (diff <= 0) {
-        clearInterval(timeInterval);
-        return;
-      }
+//       if (diff <= 0) {
+//         clearInterval(timeInterval);
+//         return;
+//       }
   
-      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      let minutes = Math.floor((diff / (1000 * 60)) % 60);
-      let seconds = Math.floor((diff / 1000) % 60);
+//       let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+//       let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+//       let minutes = Math.floor((diff / (1000 * 60)) % 60);
+//       let seconds = Math.floor((diff / 1000) % 60);
   
-      days = days.toString().padStart(2, '0');
-      hours = hours.toString().padStart(2, '0');
-      minutes = minutes.toString().padStart(2, '0');
-      seconds = seconds.toString().padStart(2, '0');
+//       days = days.toString().padStart(2, '0');
+//       hours = hours.toString().padStart(2, '0');
+//       minutes = minutes.toString().padStart(2, '0');
+//       seconds = seconds.toString().padStart(2, '0');
   
-      daysSpan.textContent = days;
-      hoursSpan.textContent = hours;
-      minutesSpan.textContent = minutes;
-      secondsSpan.textContent = seconds;
-    }
+//       daysSpan.textContent = days;
+//       hoursSpan.textContent = hours;
+//       minutesSpan.textContent = minutes;
+//       secondsSpan.textContent = seconds;
+//     }
   
-    timer();
-    timeInterval = setInterval(timer, 1000);
-  };
-  
+//     timer();
+//     timeInterval = setInterval(timer, 1000);
+//   };
+  const countDownDate = new Date("Jul 05, 2023 00:00:00").getTime();
+   const x = setInterval(function() {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
 
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-   /* mailchimp form
+    document.getElementById("days").innerHTML = days;
+    document.getElementById("hours").innerHTML = hours;
+    document.getElementById("minutes").innerHTML = minutes;
+    document.getElementById("seconds").innerHTML = seconds;
+}, 1000);
+
+ /* mailchimp form
     * ---------------------------------------------------- */ 
     const ssMailChimpForm = function() {
 
