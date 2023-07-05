@@ -111,8 +111,9 @@
 //     timer();
 //     timeInterval = setInterval(timer, 1000);
 //   };
-  const countDownDate = new Date("Jul 05, 2023 00:00:00").getTime();
-   const x = setInterval(function() {
+const countDownDate = new Date().getTime() + (24 * 60 * 60 * 1000); // Add 24 hours in milliseconds to the current time
+
+const x = setInterval(function() {
     const now = new Date().getTime();
     const distance = countDownDate - now;
 
@@ -125,7 +126,13 @@
     document.getElementById("hours").innerHTML = hours;
     document.getElementById("minutes").innerHTML = minutes;
     document.getElementById("seconds").innerHTML = seconds;
+
+    if (distance < 0) {
+        clearInterval(x);
+    
+    }
 }, 1000);
+
 
  /* mailchimp form
     * ---------------------------------------------------- */ 
